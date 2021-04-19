@@ -3,7 +3,7 @@ const dotenv =require("dotenv");
 const morgan = require("morgan");
 const connectDB= require("./config/connectDB");
 const foodRoute =require("./routes/foodRoute");
-//const usersRoute =require("./routes/usersRoutes");
+const usersRoute =require("./routes/usersRoute");
 
 
 dotenv.config();
@@ -18,7 +18,7 @@ app.use(morgan("dev"));
 
 //routes
 app.use("/api/v2/food", foodRoute)
-//app.use("/api/v1/users", usersRoute)
+app.use("/api/v1/users", usersRoute)
 
 //home 
 app.get ("/", (req, res)=> {
