@@ -1,6 +1,6 @@
 const express = require ("express");
 const {createFood, getAllFood, getSingleFood, deleteFood, updateFood} = require("../controllers/foodController")
-
+const protect = require ("../middlewares/authMiddleware")
 const router = express.Router()
 
 router.route("/")
@@ -8,9 +8,9 @@ router.route("/")
 .get(getAllFood)
 
 router.route("/:_id")
-.get( getSingleFood)
-.delete(deleteFood)
-.put(updateFood)
+.get(protect, getSingleFood)
+.delete(protect, deleteFood)
+.put(protect, updateFood)
 
 
 
