@@ -1,6 +1,7 @@
 const express= require("express");
 const dotenv =require("dotenv");
 const morgan = require("morgan");
+const cors = require("cors");
 const connectDB= require("./config/connectDB");
 const foodRoute =require("./routes/foodRoute");
 const usersRoute =require("./routes/usersRoute");
@@ -15,6 +16,7 @@ connectDB();
 //middlewares
 app.use(express.json());
 app.use(morgan("dev"));
+app.use(cors());
 
 //routes
 app.use("/api/v2/food", foodRoute)

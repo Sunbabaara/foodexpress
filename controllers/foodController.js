@@ -15,7 +15,7 @@ const createFood = async (req, res)=>{
 
 //get all foods
 const getAllFood =async(req, res)=>{
-    const food = await food.find();
+    const food = await Food.find();
     res.json(food);
 }
 
